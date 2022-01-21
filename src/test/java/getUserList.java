@@ -12,4 +12,5 @@ public class getUserList {
                 .statusCode(200)
                 .log().body();
     }
+
 }
