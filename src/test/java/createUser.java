@@ -1,3 +1,4 @@
+import UserClient.Create.CreateUserRequestBody;
 import UserClient.users;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -24,15 +25,19 @@ public class createUser {
 
         //Arrange
         String email = String.format("%s@gmail.com", UUID.randomUUID());
+        String name= "Tenali Rama";
+        String gender= "male";
+        String status= "active";
         String body = String.format("{\n" +
                 "  \"name\": \"Tenali Rama\", \n" +
                 " \"gender\": \"male\", \n" +
                 " \"email\": \"%s\",\n" +
                 " \"status\": \"active\"\n" +
                 "}", email);
+        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, gender, email, status);
 
         //Act
-        User.createUser(body)
+        User.createUser(requestBody)
                 .then()
                 .log().body()
 
@@ -48,14 +53,19 @@ public class createUser {
 
         //Arrange
         String email = String.format("%s@gmail.com", UUID.randomUUID());
+        String name= "Sonia K";
+        String gender= "Female";
+        String status= "active";
         String body = String.format("{\n" +
                 "  \"name\": \"Sonia K\", \n" +
                 " \"gender\": \"Female\", \n" +
                 " \"email\": \"%s\",\n" +
                 " \"status\": \"active\"\n" +
                 "}", email);
+
+        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, gender, email, status);
         //Act
-        User.createUser(body)
+        User.createUser(requestBody)
                 .then()
                 .log().body()
 
