@@ -2,25 +2,37 @@ import UserClient.users;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
 
 public class createUser {
 
+
+    private users User;
+    @BeforeClass
+    public void beforeClass(){
+        User = new users();
+
+    }
+
     @Test
     public void createMaleUser() {
 
         //Arrange
-        String body = "{\n" +
+        String email = String.format("%s@gmail.com", UUID.randomUUID());
+        String body = String.format("{\n" +
                 "  \"name\": \"Tenali Rama\", \n" +
                 " \"gender\": \"male\", \n" +
-                " \"email\": \"tenali.rama13@gmail.com\",\n" +
+                " \"email\": \"%s\",\n" +
                 " \"status\": \"active\"\n" +
-                "}";
+                "}", email);
 
         //Act
-        new users().createUser(body)
+        User.createUser(body)
                 .then()
                 .log().body()
 
@@ -35,14 +47,15 @@ public class createUser {
     public void createFemaleUser() {
 
         //Arrange
-        String body = "{\n" +
+        String email = String.format("%s@gmail.com", UUID.randomUUID());
+        String body = String.format("{\n" +
                 "  \"name\": \"Sonia K\", \n" +
                 " \"gender\": \"Female\", \n" +
-                " \"email\": \"soniak3@gmail.com\",\n" +
+                " \"email\": \"%s\",\n" +
                 " \"status\": \"active\"\n" +
-                "}";
+                "}", email);
         //Act
-        new users().createUser(body)
+        User.createUser(body)
                 .then()
                 .log().body()
 

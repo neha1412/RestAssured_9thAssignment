@@ -1,8 +1,16 @@
 import UserClient.users;
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class cReateUserNegativeTests {
+
+    private users User;
+
+    @BeforeClass
+    public void beforeClass(){
+        User= new users();
+    }
 
     @Test
     public void createUserForNegativeTests() {
@@ -13,7 +21,7 @@ public class cReateUserNegativeTests {
                 " \"email\": \"soniak2gmail.com\",\n" +
                 " \"status\": \"active\"\n" +
                 "}";
-        new users().createUser(body)
+        User.createUser(body)
                 .then()
                 .log().body()
                 .statusCode(422)
