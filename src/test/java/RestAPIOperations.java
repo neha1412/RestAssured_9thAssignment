@@ -25,7 +25,7 @@ public class RestAPIOperations {
                 .body("{\n"+
                         "  \"name\": \"ABC XYZ\", \n" +
                 " \"gender\": \"male\", \n" +
-                " \"email\": \"tenali.ramakrishna116@gmail.com\",\n"  +
+                " \"email\": \"tenali.ramakrishna117@gmail.com\",\n"  +
                 " \"status\": \"active\"\n"+
     "}")
         .when()
