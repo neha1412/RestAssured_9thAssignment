@@ -25,16 +25,16 @@ public class createUser {
 
         //Arrange
         String email = String.format("%s@gmail.com", UUID.randomUUID());
-        String name= "Tenali Rama";
-        String gender= "male";
-        String status= "active";
         String body = String.format("{\n" +
                 "  \"name\": \"Tenali Rama\", \n" +
                 " \"gender\": \"male\", \n" +
                 " \"email\": \"%s\",\n" +
                 " \"status\": \"active\"\n" +
                 "}", email);
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, gender, email, status);
+
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder()
+                .name("Tenali Rama").gender("male")
+                .email(email).status("active").build();
 
         //Act
         User.createUser(requestBody)
@@ -53,9 +53,6 @@ public class createUser {
 
         //Arrange
         String email = String.format("%s@gmail.com", UUID.randomUUID());
-        String name= "Sonia K";
-        String gender= "Female";
-        String status= "active";
         String body = String.format("{\n" +
                 "  \"name\": \"Sonia K\", \n" +
                 " \"gender\": \"Female\", \n" +
@@ -63,7 +60,10 @@ public class createUser {
                 " \"status\": \"active\"\n" +
                 "}", email);
 
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, gender, email, status);
+
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder()
+                .name("Sonia K").gender("Female")
+                .email(email).status("active").build();
         //Act
         User.createUser(requestBody)
                 .then()
