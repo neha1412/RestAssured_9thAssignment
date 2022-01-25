@@ -1,4 +1,4 @@
-# RestAssured_6TH Assignment
-Rest API 6th Assignment
-Assignment to add negative Tests
+# RestAssured_9TH Assignment
+Rest API 9th Assignment
+Assignment to use getters and builder annotations
 
